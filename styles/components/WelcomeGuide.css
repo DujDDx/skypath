@@ -1,0 +1,132 @@
+/* SkyPath — styles extracted from src/features/visualization/components/WelcomeGuide.vue (Vue <style scoped>) */
+/* Source component: WelcomeGuide.vue · scoping removed for plain-CSS reuse */
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--dialog-overlay-bg);
+  backdrop-filter: blur(var(--dialog-overlay-blur));
+  -webkit-backdrop-filter: blur(var(--dialog-overlay-blur));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--dialog-z-index-elevated);
+}
+
+.welcome-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--dialog-panel-radius);
+  padding: var(--dialog-panel-padding);
+  min-width: min(100vw - 32px, var(--dialog-panel-min-width));
+  max-width: var(--dialog-panel-max-width);
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0.5;
+}
+
+.welcome-title {
+  font-family: var(--font-family-base);
+  font-size: var(--dialog-title-font-size);
+  font-weight: var(--dialog-title-font-weight);
+  letter-spacing: var(--dialog-title-letter-spacing);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.welcome-subtitle {
+  font-family: var(--font-family-base);
+  font-size: var(--dialog-caption-font-size);
+  line-height: var(--dialog-caption-line-height);
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.welcome-tips {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--dialog-content-margin-bottom);
+}
+
+.tip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.tip-label {
+  font-family: var(--font-family-base);
+  font-size: var(--dialog-small-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.tip-desc {
+  font-family: var(--font-family-base);
+  font-size: var(--dialog-small-font-size);
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.welcome-btn {
+  font-family: var(--font-family-base);
+  width: 100%;
+  padding: var(--dialog-btn-padding-y) var(--dialog-btn-padding-x);
+  font-size: var(--dialog-btn-font-size);
+  font-weight: var(--dialog-btn-font-weight);
+  letter-spacing: var(--dialog-btn-letter-spacing);
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  background: var(--accent-white);
+  border: none;
+  border-radius: var(--dialog-btn-radius);
+  box-shadow: var(--shadow-float);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.welcome-btn:hover {
+  box-shadow: var(--glow-white-strong);
+  transform: translateY(-2px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--dialog-fade-duration) var(--dialog-fade-ease);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active .welcome-card,
+.fade-leave-active .welcome-card {
+  transition: all var(--dialog-fade-duration) var(--dialog-spring-ease);
+}
+
+.fade-enter-from .welcome-card {
+  transform: scale(0.9) translateY(-20px);
+  opacity: 0;
+}
+
+.fade-leave-to .welcome-card {
+  transform: scale(0.95);
+  opacity: 0;
+}

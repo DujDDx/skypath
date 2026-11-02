@@ -1,0 +1,106 @@
+/* SkyPath — styles extracted from src/features/visualization/components/WaypointListPanel.vue (Vue <style scoped>) */
+/* Source component: WaypointListPanel.vue · scoping removed for plain-CSS reuse */
+
+.waypoint-panel {
+  position: absolute;
+  top: 190px; /* Move up */
+  right: 440px; /* Move left */
+  width: 130px;
+  height: 280px;
+  z-index: 1000;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.6s ease-out;
+  transition: height 0.25s ease;
+}
+
+.waypoint-panel.collapsed {
+  height: 40px;
+}
+
+.panel-header {
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  user-select: none;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.panel-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-icon {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.panel-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.waypoint-list {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.waypoint-list li {
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-radius: var(--list-item-radius);
+  margin-bottom: var(--list-item-row-gap);
+  transition: background 0.2s;
+}
+
+.waypoint-list li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.waypoint-panel.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.waypoint-list li.active {
+  background: var(--list-item-active-bg);
+  color: var(--list-item-active-color);
+}
+
+.waypoint-list::-webkit-scrollbar {
+  width: 4px;
+}
+.waypoint-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

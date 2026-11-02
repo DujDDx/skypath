@@ -1,0 +1,160 @@
+/* SkyPath — styles extracted from src/features/shared/components/ConfirmDialog.vue (Vue <style scoped>) */
+/* Source component: ConfirmDialog.vue · scoping removed for plain-CSS reuse */
+
+.confirm-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dialog-overlay-bg);
+  backdrop-filter: blur(var(--dialog-overlay-blur));
+  -webkit-backdrop-filter: blur(var(--dialog-overlay-blur));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--dialog-z-index);
+}
+
+.confirm-dialog {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--dialog-panel-radius);
+  padding: var(--dialog-panel-padding);
+  min-width: var(--dialog-panel-min-width);
+  max-width: var(--dialog-panel-max-width);
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.confirm-dialog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0.5;
+}
+
+.confirm-dialog-content {
+  margin-bottom: var(--dialog-content-margin-bottom);
+  text-align: center;
+}
+
+.confirm-message {
+  font-family: var(--font-family-base);
+  color: var(--text-primary);
+  font-size: var(--dialog-body-font-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--dialog-body-line-height);
+  margin: 0;
+  white-space: pre-line;
+  letter-spacing: var(--dialog-body-letter-spacing);
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--dialog-actions-gap);
+}
+
+.confirm-btn {
+  font-family: var(--font-family-base);
+  padding: var(--dialog-btn-padding-y) var(--dialog-btn-padding-x);
+  border-radius: var(--dialog-btn-radius);
+  border: none;
+  cursor: pointer;
+  font-size: var(--dialog-btn-font-size);
+  font-weight: var(--dialog-btn-font-weight);
+  letter-spacing: var(--dialog-btn-letter-spacing);
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  min-width: var(--dialog-btn-min-width);
+}
+
+.confirm-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.confirm-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.cancel-btn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-white);
+  box-shadow: var(--glow-white);
+}
+
+.discard-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+}
+
+.discard-btn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-white);
+  color: var(--text-primary);
+}
+
+.confirm-btn-primary {
+  background: var(--accent-white);
+  color: var(--bg-primary);
+  box-shadow: var(--shadow-float);
+}
+
+.confirm-btn-primary:hover {
+  box-shadow: var(--glow-white-strong);
+  transform: translateY(-2px);
+}
+
+/* Transition animation */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--dialog-fade-duration) var(--dialog-fade-ease);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active .confirm-dialog,
+.fade-leave-active .confirm-dialog {
+  transition: all var(--dialog-fade-duration) var(--dialog-spring-ease);
+}
+
+.fade-enter-from .confirm-dialog {
+  transform: scale(0.9) translateY(-20px);
+  opacity: 0;
+}
+
+.fade-leave-to .confirm-dialog {
+  transform: scale(0.95);
+  opacity: 0;
+}

@@ -1,0 +1,11 @@
+/* SkyPath — styles extracted from src/features/kpi/components/WaypointDetailGroup.vue (Vue <style scoped>) */
+/* Source component: WaypointDetailGroup.vue · scoping removed for plain-CSS reuse */
+
+.details-panel {
+  margin-bottom: 24px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}

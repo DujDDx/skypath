@@ -1,0 +1,166 @@
+/* SkyPath — styles extracted from src/features/shared/components/AutoFixSuccessDialog.vue (Vue <style scoped>) */
+/* Source component: AutoFixSuccessDialog.vue · scoping removed for plain-CSS reuse */
+
+.auto-fix-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dialog-overlay-bg);
+  backdrop-filter: blur(var(--dialog-overlay-blur));
+  -webkit-backdrop-filter: blur(var(--dialog-overlay-blur));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--dialog-z-index);
+}
+
+.auto-fix-dialog {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--dialog-panel-radius);
+  padding: var(--dialog-panel-padding);
+  min-width: var(--dialog-panel-min-width);
+  max-width: var(--dialog-panel-max-width);
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.auto-fix-dialog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0.5;
+}
+
+.auto-fix-dialog-content {
+  margin-bottom: var(--dialog-content-margin-bottom);
+}
+
+.auto-fix-title {
+  font-family: var(--font-family-base);
+  color: var(--text-primary);
+  font-size: var(--dialog-title-font-size);
+  font-weight: var(--dialog-title-font-weight);
+  letter-spacing: var(--dialog-title-letter-spacing);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.auto-fix-intro {
+  font-family: var(--font-family-base);
+  color: var(--text-secondary);
+  font-size: var(--dialog-caption-font-size);
+  line-height: var(--dialog-caption-line-height);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.auto-fix-waypoint-label {
+  font-size: var(--dialog-mono-font-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  margin-bottom: var(--spacing-sm);
+}
+
+.auto-fix-positions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.position-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: var(--dialog-small-font-size);
+  font-family: var(--font-family-base);
+}
+
+.position-tag {
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-medium);
+  min-width: 36px;
+}
+
+.position-value {
+  font-family: var(--font-family-mono);
+  font-size: var(--dialog-mono-font-size);
+  color: var(--text-primary);
+}
+
+.auto-fix-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--dialog-actions-gap);
+}
+
+.auto-fix-btn {
+  font-family: var(--font-family-base);
+  padding: var(--dialog-btn-padding-y) var(--dialog-btn-padding-x);
+  border-radius: var(--dialog-btn-radius);
+  border: none;
+  cursor: pointer;
+  font-size: var(--dialog-btn-font-size);
+  font-weight: var(--dialog-btn-font-weight);
+  letter-spacing: var(--dialog-btn-letter-spacing);
+  text-transform: uppercase;
+  min-width: var(--dialog-btn-min-width);
+  transition: all var(--transition-base);
+}
+
+.reject-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.reject-btn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-white);
+  box-shadow: var(--glow-white);
+}
+
+.accept-btn {
+  background: var(--accent-white);
+  color: var(--bg-primary);
+  box-shadow: var(--shadow-float);
+}
+
+.accept-btn:hover {
+  box-shadow: var(--glow-white-strong);
+  transform: translateY(-2px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--dialog-fade-duration) var(--dialog-fade-ease);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active .auto-fix-dialog,
+.fade-leave-active .auto-fix-dialog {
+  transition: all var(--dialog-fade-duration) var(--dialog-spring-ease);
+}
+
+.fade-enter-from .auto-fix-dialog {
+  transform: scale(0.9) translateY(-20px);
+  opacity: 0;
+}
+
+.fade-leave-to .auto-fix-dialog {
+  transform: scale(0.95);
+  opacity: 0;
+}

@@ -1,0 +1,254 @@
+/* SkyPath — styles extracted from src/pages/Login.vue (Vue <style scoped>) */
+/* Source component: Login.vue · scoping removed for plain-CSS reuse */
+
+.page-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.center-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+}
+
+.login-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-deep);
+}
+
+.panel-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.panel-header h1 {
+  font-size: 28px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.btn-link:hover {
+  color: var(--text-secondary);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+/* No fill: only border + text on the glass panel (avoids extra grey vs autofill) */
+.field input {
+  padding: 12px 16px;
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.field input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--glass-border-hover);
+  background: transparent;
+}
+
+/* Selection after picking saved credentials: subtle, same tone as the field */
+.field input::selection {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+/*
+ * Autofill: Chrome/Safari ignore background: transparent and paint their own fill.
+ * The only reliable override is a huge inset box-shadow (opaque) to hide that layer.
+ * Use ~same luminance as var(--glass-bg) on var(--bg-primary) so it matches a “no fill” field.
+ */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-primary) !important;
+  caret-color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 1000px #050505 inset !important;
+  transition: background-color 5000s ease-out 0s;
+}
+
+.field input:-webkit-autofill:focus {
+  outline: none;
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 0 0 1000px #050505 inset !important;
+}
+
+.field input:autofill,
+.field input:autofill:hover,
+.field input:autofill:active {
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 1000px #050505 inset !important;
+  transition: background-color 5000s ease-out 0s;
+}
+
+.field input:autofill:focus {
+  outline: none;
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 0 0 1000px #050505 inset !important;
+}
+
+.field input:-moz-autofill {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background-color: #050505 !important;
+  color: var(--text-primary) !important;
+}
+
+.field input:-moz-autofill:focus {
+  border-color: var(--glass-border-hover);
+  background-color: #050505 !important;
+}
+
+.field input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Hide browser-native password reveal (dark icon on dark bg); use custom toggle instead */
+.field-password input[type='password']::-ms-reveal,
+.field-password input[type='password']::-ms-clear {
+  display: none;
+}
+
+.field-password input[type='password']::-webkit-textfield-decoration-container {
+  display: none;
+}
+
+.password-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.password-wrap input {
+  width: 100%;
+  padding-right: 44px;
+  box-sizing: border-box;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.password-toggle:hover:not(:disabled) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.password-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.password-toggle-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.error {
+  color: var(--accent-red);
+  font-size: 13px;
+  margin: 0;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+  border: none;
+}
+
+.btn.primary {
+  background: var(--gradient-accent);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border-hover);
+}
+
+.btn.primary:hover:not(:disabled) {
+  background: var(--glass-bg-hover);
+}
+
+.btn.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn.full {
+  width: 100%;
+}

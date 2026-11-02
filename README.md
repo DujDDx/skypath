@@ -1,6 +1,6 @@
 # SkyPath Landing Page
 
-SkyPath 官网落地页。样式直接取自 SkyPath 前端应用的全局设计系统，保证与产品内界面视觉一致。
+SkyPath 官网落地页。样式直接取自 SkyPath 前端应用：全局设计系统 + 从 29 个 `.vue` 组件中抽取的 scoped 组件样式，保证与产品内界面视觉一致。
 
 ## 目录结构
 
@@ -10,7 +10,12 @@ landingpage/
 │   ├── SkyPath_logo.png   # 品牌 Logo（来自 frontend/public）
 │   └── favicon.ico        # 站点图标
 ├── styles/
-│   └── theme.css          # 全局设计系统：颜色、字体、间距、玻璃拟态组件
+│   ├── theme.css          # 全局设计系统：颜色、字体、间距、玻璃拟态组件
+│   └── components/        # 29 个组件的样式，按组件名一一对应
+│       ├── Login.css
+│       ├── KPIPanel.css
+│       ├── ConfirmDialog.css
+│       └── …
 └── README.md
 ```
 
@@ -18,13 +23,17 @@ landingpage/
 
 ```html
 <link rel="stylesheet" href="./styles/theme.css" />
+<link rel="stylesheet" href="./styles/components/Login.css" />
 ```
 
 或在使用打包工具时：
 
 ```js
 import './styles/theme.css'
+import './styles/components/Login.css'
 ```
+
+`theme.css` 必须先于 `components/` 下的文件加载——组件样式大量引用其中的 CSS 变量。
 
 ## 设计系统速览
 
@@ -49,8 +58,27 @@ import './styles/theme.css'
 - `.glass-card` —— 磨砂玻璃卡片，带 hover 光泽扫过与上浮效果
 - 全局重置、`body` 基础样式、极简滚动条
 
+## 组件样式（styles/components/）
+
+从 `SkyPath-drone-path-visualization-main/frontend/src` 的 29 个 `.vue` 文件中抽取，每个文件对应一个组件，文件名即组件名；文件头注释标明原始路径。
+
+| 分组 | 文件 |
+|------|------|
+| 页面 | `Home.css` `Login.css` `Upload.css` `Visualize.css` |
+| KPI | `CalculationStatus.css` `CollisionDetails.css` `ConfigParamsPanel.css` `KPIHeader.css` `KPIPanel.css` `MissionOverview.css` `PlaybackMissionOverview.css` `SafetyDetails.css` `ViewpointDetails.css` `WaypointDetailGroup.css` `WaypointDetails.css` |
+| 通用组件 | `AutoFixFailedDialog.css` `AutoFixSuccessDialog.css` `ConfirmDialog.css` `ProjectNameDialog.css` |
+| 上传 | `DroneLoading.css` `FileUploadZone.css` `ParticleBackground.css` |
+| 可视化 | `AxisGizmo.css` `BuildingHighlighter.css` `CameraFrustum.css` `PlaybackTimeline.css` `VisualizeControlPanel.css` `WaypointListPanel.css` `WelcomeGuide.css` |
+
+### 抽取说明
+
+- **已移除 Vue 的 scoped 作用域**：原样式经 Vue 编译后会附加 `data-v-*` 属性选择器，这里给出的是编译前的裸选择器，需配合相同 class 结构使用。
+- `VisualizeControlPanel.css` 中原有的 `:deep(.waypoint-style-panel)` 已展开为普通选择器 `.waypoint-style-panel`。
+- `BuildingHighlighter.css`、`CameraFrustum.css` 的原始样式块只有注释（样式写在 Three.js 材质参数里），因此内容为空占位。
+- scoped 样式里的选择器依赖组件内部 class 名（如 `.kpi-panel__row`），复用某个组件时需同时沿用其模板结构。
+- 样式大量依赖 `theme.css` 的变量，单独引用组件文件而不引 `theme.css` 会导致颜色/圆角失效。
+
 ## 注意
 
 - `theme.css` 中 `body { overflow: hidden }` 是产品内（全屏 3D 画布）的设置，落地页通常需要改为 `overflow-x: hidden` 或移除。
-- 组件级样式（按钮、面板、列表等）目前以 `<style scoped>` 形式存在于 SkyPath 前端的 29 个 `.vue` 文件中，未复制到本仓库；如需复用某个组件的样式，可单独抽取。
 - 来源仓库：`SkyPath-drone-path-visualization-main/frontend`。

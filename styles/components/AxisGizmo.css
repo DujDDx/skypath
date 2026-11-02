@@ -1,0 +1,48 @@
+/* SkyPath — styles extracted from src/features/visualization/components/AxisGizmo.vue (Vue <style scoped>) */
+/* Source component: AxisGizmo.vue · scoping removed for plain-CSS reuse */
+
+.axis-gizmo-container {
+  position: absolute;
+  top: 34px; /* Toolbar height + margin */
+  right: 400px;
+  width: 180px;
+  height: 180px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.canvas-container {
+  width: 100%;
+  height: 100%;
+}
+
+.axis-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.label {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.label.x-label {
+  color: #FF3333;
+}
+
+.label.y-label {
+  color: #33FF33;
+}
+
+.label.z-label {
+  color: #3333FF;
+}

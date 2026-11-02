@@ -1,0 +1,154 @@
+/* SkyPath — styles extracted from src/features/shared/components/ProjectNameDialog.vue (Vue <style scoped>) */
+/* Source component: ProjectNameDialog.vue · scoping removed for plain-CSS reuse */
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dialog-overlay-bg);
+  backdrop-filter: blur(var(--dialog-overlay-blur));
+  -webkit-backdrop-filter: blur(var(--dialog-overlay-blur));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--dialog-z-index);
+}
+
+.dialog {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--dialog-panel-radius);
+  padding: var(--dialog-panel-padding);
+  min-width: var(--dialog-panel-min-width);
+  max-width: var(--dialog-panel-max-width);
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.dialog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0.5;
+}
+
+.dialog-title {
+  font-family: var(--font-family-base);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--dialog-title-font-size);
+  font-weight: var(--dialog-title-font-weight);
+  letter-spacing: var(--dialog-title-letter-spacing);
+  color: var(--text-primary);
+}
+
+.dialog-desc {
+  font-family: var(--font-family-base);
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--dialog-caption-font-size);
+  line-height: var(--dialog-caption-line-height);
+  color: var(--text-secondary);
+}
+
+.name-input {
+  font-family: var(--font-family-base);
+  width: 100%;
+  padding: var(--dialog-input-padding-y) var(--dialog-input-padding-x);
+  margin-bottom: var(--dialog-content-margin-bottom);
+  font-size: var(--dialog-input-font-size);
+  color: var(--text-primary);
+  background: var(--glass-bg-hover);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.name-input:focus {
+  border-color: var(--accent-white);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+.name-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--dialog-actions-gap);
+}
+
+.btn {
+  font-family: var(--font-family-base);
+  padding: var(--dialog-btn-padding-y) var(--dialog-btn-padding-x);
+  border-radius: var(--dialog-btn-radius);
+  border: none;
+  cursor: pointer;
+  font-size: var(--dialog-btn-font-size);
+  font-weight: var(--dialog-btn-font-weight);
+  letter-spacing: var(--dialog-btn-letter-spacing);
+  text-transform: uppercase;
+  min-width: var(--dialog-btn-min-width);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.cancel-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.cancel-btn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-white);
+  box-shadow: var(--glow-white);
+}
+
+.confirm-btn {
+  background: var(--accent-white);
+  color: var(--bg-primary);
+  box-shadow: var(--shadow-float);
+}
+
+.confirm-btn:hover {
+  box-shadow: var(--glow-white-strong);
+  transform: translateY(-2px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--dialog-fade-duration) var(--dialog-fade-ease);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active .dialog,
+.fade-leave-active .dialog {
+  transition: all var(--dialog-fade-duration) var(--dialog-spring-ease);
+}
+
+.fade-enter-from .dialog {
+  transform: scale(0.9) translateY(-20px);
+  opacity: 0;
+}
+
+.fade-leave-to .dialog {
+  transform: scale(0.95);
+  opacity: 0;
+}

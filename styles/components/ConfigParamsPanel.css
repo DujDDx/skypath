@@ -1,0 +1,242 @@
+/* SkyPath — styles extracted from src/features/kpi/components/ConfigParamsPanel.vue (Vue <style scoped>) */
+/* Source component: ConfigParamsPanel.vue · scoping removed for plain-CSS reuse */
+
+/* Match WaypointListPanel style */
+.config-panel.waypoint-style-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.config-panel.panel-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.panel-header {
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  user-select: none;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.panel-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-icon {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.panel-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.panel-content::-webkit-scrollbar {
+  width: 4px;
+}
+.panel-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.subsection-title {
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 16px 0 8px;
+  text-transform: uppercase;
+}
+
+.subsection-title:first-of-type {
+  margin-top: 0;
+}
+
+.data-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.data-row:last-child {
+  margin-bottom: 0;
+}
+
+.data-label {
+  font-size: 13px;
+  color: #ccc;
+  font-weight: var(--font-weight-medium);
+}
+
+.config-input,
+.config-select {
+  width: 100%;
+  max-width: 240px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: var(--font-family-mono);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.config-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+.config-input:focus,
+.config-select:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.config-input:hover,
+.config-select:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.config-input.invalid {
+  border-color: rgba(255, 100, 100, 0.6);
+}
+
+.config-input:disabled {
+  opacity: 0.6;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.error-text {
+  font-size: 10px;
+  color: rgba(255, 150, 150, 0.9);
+  margin-top: 2px;
+}
+
+.hint-text {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.preset-row {
+  position: relative;
+}
+
+.preset-dropdown {
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+}
+
+.preset-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: var(--font-family-mono);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: left;
+}
+
+.preset-trigger:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.preset-trigger-open {
+  border-bottom-color: transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+.preset-arrow {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+.preset-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 100%;
+  margin-top: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(28, 28, 30, 0.98);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  z-index: 1003;
+}
+
+.preset-option {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #ccc;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.preset-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.preset-option.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.aspect-readonly {
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: var(--font-family-mono);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  max-width: 240px;
+}

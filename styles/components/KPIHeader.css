@@ -1,0 +1,78 @@
+/* SkyPath — styles extracted from src/features/kpi/components/KPIHeader.vue (Vue <style scoped>) */
+/* Source component: KPIHeader.vue · scoping removed for plain-CSS reuse */
+
+.panel-header {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: var(--gradient-cold-1);
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.status-label {
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.control-row .status-label {
+  padding-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.control-btn {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.control-btn svg {
+  transition: all var(--transition-fast);
+}
+
+.control-btn:hover:not(:disabled) {
+  background: var(--glass-bg-hover);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.control-btn:hover:not(:disabled) svg {
+  transform: scale(1.1);
+}
+
+.control-btn:active:not(:disabled) {
+  background: var(--glass-bg-active);
+  transform: scale(0.95);
+}
+
+.control-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.15);
+}

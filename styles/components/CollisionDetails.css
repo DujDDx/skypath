@@ -1,0 +1,164 @@
+/* SkyPath — styles extracted from src/features/kpi/components/CollisionDetails.vue (Vue <style scoped>) */
+/* Source component: CollisionDetails.vue · scoping removed for plain-CSS reuse */
+
+.collision-panel {
+  margin-bottom: 24px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-header-text {
+  flex: 1;
+}
+
+.section-header-button {
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.section-header-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--glass-border-hover);
+}
+
+.section-content {
+  padding: 12px 16px 16px;
+  background: var(--glass-bg);
+  max-height: 270px;
+  overflow-y: auto;
+}
+
+.collision-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 var(--list-item-row-gap);
+  font-size: 12px;
+}
+
+.collision-table th,
+.collision-table td {
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.collision-table thead th {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 8px;
+}
+
+.collision-table tbody td {
+  border-bottom: none;
+}
+
+.collision-table th {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-tertiary);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.cell-type {
+  width: 70px;
+}
+
+.cell-idx {
+  width: 120px;
+  font-family: var(--font-family-mono);
+}
+
+.cell-action-header {
+  width: 70px;
+  text-align: right;
+}
+
+.cell-action {
+  width: 70px;
+  text-align: right;
+}
+
+.fix-button {
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.fix-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--glass-border-hover);
+}
+
+.collision-row {
+  cursor: pointer;
+}
+
+.collision-row:not(.is-selected) td:first-child {
+  border-radius: var(--list-item-radius) 0 0 var(--list-item-radius);
+}
+
+.collision-row:not(.is-selected) td:last-child {
+  border-radius: 0 var(--list-item-radius) var(--list-item-radius) 0;
+}
+
+.collision-row:hover td {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.collision-row.is-selected:hover td {
+  background: var(--list-item-active-bg);
+}
+
+.collision-row.is-selected td {
+  background: var(--list-item-active-bg);
+  border-top: 1px solid var(--list-item-active-border);
+  border-bottom: 1px solid var(--list-item-active-border);
+  border-left: none;
+  border-right: none;
+}
+
+.collision-row.is-selected td:first-child {
+  border-left: 1px solid var(--list-item-active-border);
+  border-radius: var(--list-item-radius) 0 0 var(--list-item-radius);
+}
+
+.collision-row.is-selected td:last-child {
+  border-right: 1px solid var(--list-item-active-border);
+  border-radius: 0 var(--list-item-radius) var(--list-item-radius) 0;
+}
+
+.collision-row.is-selected .cell-type,
+.collision-row.is-selected .cell-idx {
+  color: var(--list-item-active-color);
+}

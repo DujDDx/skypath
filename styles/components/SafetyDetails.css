@@ -1,0 +1,48 @@
+/* SkyPath — styles extracted from src/features/kpi/components/SafetyDetails.vue (Vue <style scoped>) */
+/* Source component: SafetyDetails.vue · scoping removed for plain-CSS reuse */
+
+.detail-section {
+  border-top: 1px solid var(--glass-border);
+}
+
+.section-header {
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-content {
+  padding: 16px;
+  background: var(--glass-bg);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.data-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.data-row:last-child {
+  margin-bottom: 0;
+}
+
+.data-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.data-value {
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+}

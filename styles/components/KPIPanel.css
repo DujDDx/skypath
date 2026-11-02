@@ -1,0 +1,222 @@
+/* SkyPath — styles extracted from src/features/kpi/components/KPIPanel.vue (Vue <style scoped>) */
+/* Source component: KPIPanel.vue · scoping removed for plain-CSS reuse */
+
+.kpi-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  height: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: -3px 0 20px rgba(0, 0, 0, 0.5), inset -1px 0 0 rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+}
+
+.panel-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.panel-container {
+  padding: 24px;
+}
+
+
+/* Undo/Redo button bar */
+.undo-redo-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.undo-button,
+.redo-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xs);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.undo-button:hover:not(:disabled),
+.redo-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.undo-button:active:not(:disabled),
+.redo-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.undo-button:disabled,
+.redo-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.button-text {
+  flex: 0;
+}
+
+.shortcut-hint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-family-mono);
+}
+
+
+.section-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 24px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Section header */
+.section-header {
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Section content */
+.section-content {
+  padding: 16px;
+  background: var(--glass-bg);
+}
+
+.data-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.data-row:last-child {
+  margin-bottom: 0;
+}
+
+.data-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.data-value {
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+}
+
+.coordinate-fields {
+  display: flex;
+  gap: 8px;
+}
+
+.coordinate-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.coordinate-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.coordinate-value {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  padding: 8px;
+  border-radius: var(--radius-xs);
+  font-size: 13px;
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+}
+
+.coordinate-value:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--glass-border-hover);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+@media (max-height: 700px) {
+  .panel-container {
+    padding: 16px;
+  }
+  
+  .section-divider {
+    margin: 16px 0;
+  }
+  
+  .flight-stat,
+  .waypoint-section,
+  .viewpoint-section,
+  .safety-section {
+    margin-bottom: 16px;
+  }
+}
