@@ -19,6 +19,14 @@ landingpage/
 └── README.md
 ```
 
+## 本地预览
+
+```bash
+./start.sh        # 默认端口 8765，可传入其他端口：./start.sh 8080
+```
+
+然后访问 `http://localhost:8765/index.html`。请通过 HTTP 访问，直接用 `file://` 打开可能无法加载样式。
+
 ## 引入样式
 
 ```html

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkyPath — Interactive Multi-UAV Viewpoint and Path Visualization Tool</title>
+  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="stylesheet" href="./styles/theme.css" />
+  <link rel="stylesheet" href="./styles/components/ParticleBackground.css" />
+  <link rel="stylesheet" href="./styles/components/DroneLoading.css" />
+  <link rel="stylesheet" href="./styles/landing.css" />
+</head>
+<body>
+  <div class="particle-background"><canvas id="particles"></canvas></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <img class="nav-logo" src="./assets/SkyPath_logo.png" alt="SkyPath" />
+      <nav class="nav-actions">
+        <a href="#details" class="btn btn-ghost">Details</a>
+        <a href="#features" class="btn btn-ghost">Features</a>
+        <a href="#progress" class="btn btn-ghost">Progress</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="container">
+      <!-- Drone, rotors and progress bar reuse DroneLoading.css -->
+      <div class="hero-drone animate-fade-in">
+        <div class="drone-body">
+          <div class="drone-arm arm-1"></div>
+          <div class="drone-arm arm-2"></div>
+          <div class="drone-arm arm-3"></div>
+          <div class="drone-arm arm-4"></div>
+          <div class="rotor rotor-1"><div class="rotor-disc"></div></div>
+          <div class="rotor rotor-2"><div class="rotor-disc"></div></div>
+          <div class="rotor rotor-3"><div class="rotor-disc"></div></div>
+          <div class="rotor rotor-4"><div class="rotor-disc"></div></div>
+          <div class="drone-center"></div>
+        </div>
+      </div>
+
+      <h1 class="gradient-text hero-title animate-slide-up">Interactive Multi-UAV<br />Viewpoint and Path<br />Visualization Tool</h1>
+      <h2 class="hero-tagline animate-slide-up">Every flight deserves a safe path</h2>
+      <p class="hero-sub animate-slide-up">Upload a 3D scene, plan UAV routes automatically, detect collisions and safety risks, and replay the entire mission in 3D.</p>
+    </div>
+  </main>
+
+  <section class="details" id="details">
+    <div class="container">
+      <div class="glass-card details-panel">
+        <h2 class="details-title">Project Details</h2>
+        <dl class="details-list">
+          <div class="details-row"><dt>Team name</dt><dd>[Team name]</dd></div>
+          <div class="details-row"><dt>Project name</dt><dd>Interactive Multi-UAV Viewpoint and Path Visualization Tool</dd></div>
+          <div class="details-row"><dt>Supervisor</dt><dd>[Supervisor name]</dd></div>
+        </dl>
+      </div>
+
+      <h2 class="details-title team-title">Team members</h2>
+      <ul class="team-grid">
+        <li class="glass-card member"><span class="member-avatar drone-icon"></span><span class="member-name">[Member 1]</span></li>
+        <li class="glass-card member"><span class="member-avatar drone-icon"></span><span class="member-name">[Member 2]</span></li>
+        <li class="glass-card member"><span class="member-avatar drone-icon"></span><span class="member-name">[Member 3]</span></li>
+        <li class="glass-card member"><span class="member-avatar drone-icon"></span><span class="member-name">[Member 4]</span></li>
+        <li class="glass-card member"><span class="member-avatar drone-icon"></span><span class="member-name">[Member 5]</span></li>
+        <li class="glass-card member"><span class="member-avatar drone-icon"></span><span class="member-name">[Member 6]</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="details-title">Features</h2>
+      <ul class="feature-grid">
+        <li class="glass-card feature"><span class="feature-num">01</span><h3>Scene Upload</h3><p>Drag and drop scene files, name your project, and pick up where you left off from the project list.</p></li>
+        <li class="glass-card feature"><span class="feature-num">02</span><h3>Parameter Configuration</h3><p>Set flight and camera parameters with presets and instant validation before calculation starts.</p></li>
+        <li class="glass-card feature"><span class="feature-num">03</span><h3>Interactive 3D View</h3><p>Explore the scene in 3D with an axis gizmo and a control panel to adjust what is displayed.</p></li>
+        <li class="glass-card feature"><span class="feature-num">04</span><h3>Viewpoints &amp; Frustum</h3><p>Inspect and edit viewpoint coordinates, and see each camera frustum to check what is covered.</p></li>
+        <li class="glass-card feature"><span class="feature-num">05</span><h3>Waypoint Editing</h3><p>Browse the waypoint list, edit positions in detail, and undo or redo changes with shortcuts.</p></li>
+        <li class="glass-card feature"><span class="feature-num">06</span><h3>Collision Detection</h3><p>List collisions in a table and highlight the affected buildings directly in the scene.</p></li>
+        <li class="glass-card feature"><span class="feature-num">07</span><h3>Auto-Fix</h3><p>Get suggested replacement positions for colliding waypoints, then accept or reject each fix.</p></li>
+        <li class="glass-card feature"><span class="feature-num">08</span><h3>Safety &amp; KPIs</h3><p>Track safety details, key metrics, and a mission overview with clear safe and warning status.</p></li>
+        <li class="glass-card feature"><span class="feature-num">09</span><h3>Mission Playback</h3><p>Replay the mission on a timeline, jump to any waypoint, and change the playback speed.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="progress" id="progress">
+    <div class="container">
+      <h2 class="details-title">Progress</h2>
+      <!-- Add a new week: copy one <li class="timeline-item"> below and append it at the end of the list. -->
+      <ol class="timeline">
+        <li class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="glass-card timeline-card">
+            <div class="timeline-meta"><span class="timeline-week">Week 1</span><span class="timeline-date">[Date range]</span></div>
+            <h3>[Milestone title]</h3>
+            <ul class="timeline-notes">
+              <li>[What was done]</li>
+              <li>[What was done]</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="glass-card timeline-card">
+            <div class="timeline-meta"><span class="timeline-week">Week 2</span><span class="timeline-date">[Date range]</span></div>
+            <h3>[Milestone title]</h3>
+            <ul class="timeline-notes">
+              <li>[What was done]</li>
+              <li>[What was done]</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <script>
+    // Ambient particles: slow upward drift with a soft twinkle
+    (function () {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let w, h, dots;
+
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        w = canvas.clientWidth;
+        h = canvas.clientHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        dots = Array.from({ length: Math.min(120, Math.floor(w * h / 14000)) }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.2 + 0.4,
+          speed: Math.random() * 0.25 + 0.05,
+          phase: Math.random() * Math.PI * 2,
+        }));
+      }
+
+      function draw(t) {
+        ctx.clearRect(0, 0, w, h);
+        for (const d of dots) {
+          d.y -= d.speed;
+          if (d.y < -2) { d.y = h + 2; d.x = Math.random() * w; }
+          const alpha = 0.15 + 0.35 * (0.5 + 0.5 * Math.sin(t / 900 + d.phase));
+          ctx.fillStyle = 'rgba(212, 220, 229,' + alpha + ')';
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function loop(t) { draw(t); requestAnimationFrame(loop); }
+
+      window.addEventListener('resize', resize);
+      resize();
+      if (still) draw(0); else requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>
