@@ -90,12 +90,15 @@
   <section class="progress" id="progress">
     <div class="container">
       <h2 class="details-title">Progress</h2>
-      <!-- Add a new week: copy one <li class="timeline-item"> below and append it at the end of the list. -->
+      <!--
+        Add a new week: copy one <li class="timeline-item"> below and append it at the end of the list.
+        Set data-status to "done", "in-progress" or "planned" and change the .timeline-status label to match.
+      -->
       <ol class="timeline">
-        <li class="timeline-item">
+        <li class="timeline-item" data-status="done">
           <span class="timeline-dot"></span>
           <div class="glass-card timeline-card">
-            <div class="timeline-meta"><span class="timeline-week">Week 1</span><span class="timeline-date">[Date range]</span></div>
+            <div class="timeline-meta"><span class="timeline-week">Week 1</span><span class="timeline-date">[Date range]</span><span class="timeline-status">Completed</span></div>
             <h3>[Milestone title]</h3>
             <ul class="timeline-notes">
               <li>[What was done]</li>
@@ -103,10 +106,21 @@
             </ul>
           </div>
         </li>
-        <li class="timeline-item">
+        <li class="timeline-item" data-status="in-progress">
           <span class="timeline-dot"></span>
           <div class="glass-card timeline-card">
-            <div class="timeline-meta"><span class="timeline-week">Week 2</span><span class="timeline-date">[Date range]</span></div>
+            <div class="timeline-meta"><span class="timeline-week">Week 2</span><span class="timeline-date">[Date range]</span><span class="timeline-status">In progress</span></div>
+            <h3>[Milestone title]</h3>
+            <ul class="timeline-notes">
+              <li>[What was done]</li>
+              <li>[What was done]</li>
+            </ul>
+          </div>
+        </li>
+        <li class="timeline-item" data-status="planned">
+          <span class="timeline-dot"></span>
+          <div class="glass-card timeline-card">
+            <div class="timeline-meta"><span class="timeline-week">Week 3</span><span class="timeline-date">[Date range]</span><span class="timeline-status">Planned</span></div>
             <h3>[Milestone title]</h3>
             <ul class="timeline-notes">
               <li>[What was done]</li>
